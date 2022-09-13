@@ -7,8 +7,6 @@ let bookAuthor = document.querySelector('.author');
 let bookPages = document.querySelector('.pages');
 let bookRead = document.querySelector('.read');
 
-
-
 function Book(title, author, pages, status) {
     this.title = title
     this.author = author
@@ -25,48 +23,36 @@ Book.prototype.addBookToLibrary = function () {
 
 bookRead.addEventListener('click', () => {
     bookRead.classList.add('have-read');
-    console.log(bookRead.classList);
 })
+
+function saveInput() {
+    
+    let haveRead = "have read";
+    let haveNotRead = "have not";
+
+    if (bookRead.classList.contains('have-read')) {
+        let bookReport = haveRead;
+        return bookReport;
+    } else {
+        let bookReport = haveNotRead;
+        return bookReport;
+    }
+}
 
 function bookInfo() {
     let title = bookTitle.value;
     let author = bookAuthor.value;
     let pages = bookPages.value;
-    let bookInput = ( "'" + title + "'," + "'" + author + "'," + "'" + pages + "'," + "'");
-    return bookInput;
+    let read = saveInput();
+    let bookInput = new Book(title, author, pages, read);
+    console.log(bookInput);
+    myLibrary.push(bookInput);
 }
-
-function saveInput() {
-    
-    let haveRead = "have read";
-    let haveNotRead = "have not read";
-    let readBook = bookInfo();
-
-    if (bookRead.classList.contains('have-read')) {
-        let bookReport = (readBook + "'" + haveRead + "'");
-        return bookReport;
-    } else {
-        let bookReport = (readBook + "'" + haveNotRead + "'");
-        return bookReport;
-    }
-}
-
-
 
 
 submit.addEventListener('click', () => {
-    let bookRecord = saveInput();
-  
-    let bookSave = new Book(bookRecord);
-    bookSave.addBookToLibrary();
-    console.log(myLibrary);
-    //helper functions:
-        //access input elements
-        //string together in new Book item
-        //name according to input title
-        //push to myLibrary
-})
+    bookInfo();
 
-//Add event listener to submit button that takes input and puts into constructor function
+})
 
 
