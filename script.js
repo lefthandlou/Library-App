@@ -22,7 +22,11 @@ Book.prototype.addBookToLibrary = function () {
 
 
 bookRead.addEventListener('click', () => {
-    bookRead.classList.add('have-read');
+    if (!bookRead.classList.contains('have-read')) {
+        bookRead.classList.add('have-read');
+    } else if (bookRead.classList.contains('have-read')) {
+        bookRead.classList.remove('have-read');
+    }
 })
 
 function saveInput() {

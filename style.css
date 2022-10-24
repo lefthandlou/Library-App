@@ -1,3 +1,38 @@
+body {
+  display: flex;
+}
+
+.addNewBook {
+  display: flex;
+  background-image: url(./Images/parchment-1425941.jpg);
+  background-size: cover;
+
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Fasthand', cursive;
+  font-size: 1.75em;
+}
+
+.submit {
+  font-family: 'Fasthand', cursive;
+  font-size: 0.75em;
+  border-radius: 20px 5px 20px 5px;
+}
+
+.input {
+    all: unset;
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 25px;
+    width: max(150px, 20vw);
+    background-color: grey;
+}
+ 
+ 
  /* The switch - the box around the slider */
  .switch {
     position: relative;
@@ -60,3 +95,4 @@
   .slider.round:before {
     border-radius: 50%;
   } 
+
