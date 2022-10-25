@@ -1,0 +1,33 @@
+.addBook {
+  height: 50px;
+  width: 50px;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 25px;
+}
+.book-input {
+  display: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 20vw;
+  height: 45vh;
+}
+
+.inputWrapper {
+  margin: 10px;
+  font-family: 'Fasthand', cursive;
+  font-size: 1.25em;
+}
+
+input {
+  border-radius: 5px;
+  height: 2.5vh;
+}
+
+.submit {
+  height: 3.5vh;
+  font-family: 'Fasthand', cursive;
+  font-size: 0.75em;
+}

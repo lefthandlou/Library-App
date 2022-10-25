@@ -6,6 +6,14 @@ let bookTitle = document.querySelector('.title');
 let bookAuthor = document.querySelector('.author');
 let bookPages = document.querySelector('.pages');
 let bookRead = document.querySelector('.read');
+let addBook = document.querySelector('.addBook');
+let bookForm = document.querySelector('.book-input');
+
+addBook.addEventListener('click', () => {
+   bookForm.style.display="block";
+   bookForm.classList.add('showBookForm');
+   
+})
 
 //Book constructor function
 function Book(title, author, pages, status) {
@@ -21,15 +29,6 @@ Book.prototype.addBookToLibrary = function () {
     console.log(myLibrary);
     return myLibrary;
 }
-
-//Event listener to collect input book info
-bookRead.addEventListener('click', () => {
-    if (!bookRead.classList.contains('have-read')) {
-        bookRead.classList.add('have-read');
-    } else if (bookRead.classList.contains('have-read')) {
-        bookRead.classList.remove('have-read');
-    }
-})
 
 //Sets class of book based on read status
 function saveInput() {
@@ -48,7 +47,7 @@ function saveInput() {
 
 
 //Adds book to library and displays book on shelf
-function shelfBook() {
+function shelveBook() {
 
     let read = saveInput();
     let bookInput = new Book(title, author, pages, read);
@@ -63,6 +62,7 @@ function shelfBook() {
     let authorDiv = document.createElement('div');
     let pagesDiv = document.createElement('div');
     let readDiv = document.createElement('div');
+    let deleteBook = document.createElement('button');
 
     bookDiv.classList.add('book');
     bookDiv.setAttribute('id', myLibrary.indexOf(bookInput));
@@ -83,10 +83,15 @@ function shelfBook() {
     readDiv.textContent = saveInput();
     readDiv.classList.add('read');
     bookDiv.appendChild(readDiv);
+
+    deleteBook.textContent = "Delete Book"
+    deleteBook.classList.add('delete');
+    bookDiv.appendChild(deleteBook);
+    //TODO wire up delete listener to button to remove from shelf and array
 }
 
 submit.addEventListener('click', () => {
-    shelfBook();
+    shelveBook();
+    bookForm.style.display="none";
+    bookForm.classList.remove('showBookForm');
 })
-
-
